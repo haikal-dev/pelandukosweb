@@ -15,7 +15,20 @@
     body{background:var(--pelanduk-3);}
     .brand-logo{width:48px;height:48px;display:inline-block}
     .navbar-brand .title{font-weight:700;margin-left:.5rem}
-    .hero{background:linear-gradient(90deg, rgba(0,107,94,0.08), rgba(0,167,142,0.06));padding:5rem 0}
+    .hero{
+      background:linear-gradient(90deg, rgba(0,107,94,0.08), rgba(0,167,142,0.06));
+      padding:5rem 0;
+      position:relative;
+      text-align:center;
+    }
+    .hero img.wallpaper{
+      max-width:80%;
+      height:auto;
+      margin:2rem auto;
+      display:block;
+      border-radius:12px;
+      box-shadow:0 8px 30px rgba(0,0,0,0.15);
+    }
     .feature-icon{width:56px;height:56px;border-radius:12px;display:flex;align-items:center;justify-content:center;background:#fff;box-shadow:0 6px 20px rgba(0,0,0,0.05)}
     .card-shadow{box-shadow:0 6px 30px rgba(6, 44, 37, 0.06)}
     .download-btn{background:var(--pelanduk-1);border-color:var(--pelanduk-1)}
@@ -41,10 +54,11 @@
     </div>
   </nav>
 
-  <section class="hero text-center">
+  <section class="hero">
     <div class="container">
       <h1 id="title">Welcome to Pelanduk OS</h1>
       <p id="subtitle" class="lead">The fast, secure, and lightweight Debian-based operating system.</p>
+      <img src="wallpaper.jpg" alt="Pelanduk OS Wallpaper" class="wallpaper">
       <a href="#" class="btn btn-lg btn-primary download-btn" id="downloadBtn">Download Now</a>
     </div>
   </section>
