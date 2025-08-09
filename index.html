@@ -1,16 +1,16 @@
 <!doctype html>
-<html lang="ms">
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Pelanduk OS — Selamat Datang</title>
+  <title>Pelanduk OS — Welcome / Selamat Datang</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
   <style>
     :root{
-      --pelanduk-1:#006b5e; /* utama */
-      --pelanduk-2:#00a78e; /* aksen */
-      --pelanduk-3:#f5fbf9; /* latar */
+      --pelanduk-1:#006b5e;
+      --pelanduk-2:#00a78e;
+      --pelanduk-3:#f5fbf9;
     }
     body{background:var(--pelanduk-3);}
     .brand-logo{width:48px;height:48px;display:inline-block}
@@ -20,250 +20,54 @@
     .card-shadow{box-shadow:0 6px 30px rgba(6, 44, 37, 0.06)}
     .download-btn{background:var(--pelanduk-1);border-color:var(--pelanduk-1)}
     .download-btn:hover{background:var(--pelanduk-2);border-color:var(--pelanduk-2)}
-    footer{background:#e9f7f4}
-    /* small logo SVG as background for grub/plymouth preview */
-    .logo-svg{width:120px;height:120px}
   </style>
 </head>
 <body>
-  <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
+  <nav class="navbar navbar-expand-lg bg-white shadow-sm">
     <div class="container">
       <a class="navbar-brand d-flex align-items-center" href="#">
-        <!-- Inline Pelanduk SVG logo -->
-        <span class="brand-logo">
-          <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" class="logo-svg">
-            <circle cx="32" cy="32" r="30" fill="var(--pelanduk-1)" />
-            <path d="M18 40c5-8 14-12 22-9 0 0-6 4-6 9s-6 8-12 6c-6-2-4-6-4-6z" fill="#fff"/>
-            <path d="M40 20c-3 4-8 6-12 6s-8-2-10-6c0 0 2 6 10 8 8 2 12-8 12-8z" fill="#fff" opacity=".9"/>
-          </svg>
-        </span>
-        <span class="title">Pelanduk <small class="text-muted">OS</small></span>
+        <img src="logo.png" alt="Pelanduk OS" class="brand-logo">
+        <span class="title">Pelanduk OS</span>
       </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navMenu">
-        <ul class="navbar-nav ms-auto align-items-lg-center">
-          <li class="nav-item"><a class="nav-link" href="#features">Ciri</a></li>
-          <li class="nav-item"><a class="nav-link" href="#download">Muat Turun</a></li>
-          <li class="nav-item"><a class="nav-link" href="#gallery">Galeri</a></li>
-          <li class="nav-item"><a class="nav-link" href="#docs">Dokumentasi</a></li>
-          <li class="nav-item ms-2"><a class="btn btn-outline-success" href="#contact">Hubungi</a></li>
-        </ul>
-      </div>
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Language / Bahasa</a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#" onclick="setLang('en')">English</a></li>
+            <li><a class="dropdown-item" href="#" onclick="setLang('ms')">Bahasa Malaysia</a></li>
+          </ul>
+        </li>
+      </ul>
     </div>
   </nav>
 
-  <!-- Hero -->
-  <header class="hero">
+  <section class="hero text-center">
     <div class="container">
-      <div class="row align-items-center">
-        <div class="col-lg-7">
-          <h1 class="display-5 fw-bold">Pelanduk OS — Linux yang mesra, pantas dan boleh dipercayai</h1>
-          <p class="lead text-muted">Dibina untuk pendidikan, pejabat dan kreatif. Ringan untuk mesin lama, kuat untuk pembangunan moden.</p>
-          <div class="d-flex gap-2 mt-4">
-            <a href="#download" class="btn btn-lg btn-primary download-btn text-white me-2"><i class="bi bi-download"></i> Muat Turun ISO</a>
-            <a href="#docs" class="btn btn-lg btn-outline-secondary"><i class="bi bi-book"></i> Dokumentasi</a>
-          </div>
-          <ul class="list-unstyled mt-4 text-muted">
-            <li><strong>Base:</strong> Debian/Ubuntu compatible</li>
-            <li><strong>Desktop:</strong> GNOME, Xfce, pilihan instalasi minimal</li>
-          </ul>
-        </div>
-        <div class="col-lg-5 text-center mt-4 mt-lg-0">
-          <div class="card card-body border-0 card-shadow">
-            <div class="mb-3">
-              <!-- Mockup area for Plymouth/GRUB preview -->
-              <svg width="260" height="150" viewBox="0 0 260 150" xmlns="http://www.w3.org/2000/svg">
-                <rect x="0" y="0" width="260" height="150" rx="8" fill="#fff" stroke="#e6f2ef" />
-                <text x="20" y="40" font-size="14" fill="#333">GRUB / Plymouth Preview</text>
-                <g transform="translate(20,55)">
-                  <circle cx="20" cy="20" r="18" fill="var(--pelanduk-1)" />
-                  <text x="50" y="26" font-size="12" fill="#1b4a43">Pelanduk OS</text>
-                </g>
-              </svg>
-            </div>
-            <small class="text-muted">Sokongan theming untuk logo boot, GDM dan wallpaper GNOME.</small>
-          </div>
-        </div>
-      </div>
-    </div>
-  </header>
-
-  <!-- Features -->
-  <section id="features" class="py-5">
-    <div class="container">
-      <div class="row mb-4">
-        <div class="col text-center">
-          <h2 class="h3">Ciri-ciri Utama</h2>
-          <p class="text-muted">Diringkaskan untuk memberi pengalaman yang kemas dan mudah.</p>
-        </div>
-      </div>
-      <div class="row g-4">
-        <div class="col-md-4">
-          <div class="p-4 bg-white rounded card-shadow h-100">
-            <div class="d-flex align-items-start gap-3">
-              <div class="feature-icon"><i class="bi bi-speedometer2 fs-4"></i></div>
-              <div>
-                <h5>Prestasi Ringan</h5>
-                <p class="mb-0 text-muted">Optimal untuk komputer lama — pemasangan minimal dan kernel yang dioptimum.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="p-4 bg-white rounded card-shadow h-100">
-            <div class="d-flex align-items-start gap-3">
-              <div class="feature-icon"><i class="bi bi-people fs-4"></i></div>
-              <div>
-                <h5>Mesra Pengguna</h5>
-                <p class="mb-0 text-muted">Antara muka GNOME dan pilihan pratetap untuk pembelajaran dan pejabat.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="p-4 bg-white rounded card-shadow h-100">
-            <div class="d-flex align-items-start gap-3">
-              <div class="feature-icon"><i class="bi bi-shield-lock fs-4"></i></div>
-              <div>
-                <h5>Keselamatan & Kemas Kini</h5>
-                <p class="mb-0 text-muted">Repos rasmi, kemas kini keselamatan dan sokongan pakej standard Debian.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+      <h1 id="title">Welcome to Pelanduk OS</h1>
+      <p id="subtitle" class="lead">The fast, secure, and lightweight Debian-based operating system.</p>
+      <a href="#" class="btn btn-lg btn-primary download-btn" id="downloadBtn">Download Now</a>
     </div>
   </section>
 
-  <!-- Download -->
-  <section id="download" class="py-5 bg-white">
-    <div class="container">
-      <div class="row align-items-center">
-        <div class="col-md-7">
-          <h3>Muat Turun</h3>
-          <p class="text-muted">Pilih imej ISO untuk pemasangan desktop penuh atau versi "net-install" untuk pemasangan minimal.
-          </p>
-          <div class="row">
-            <div class="col-sm-6 mb-3">
-              <div class="p-3 border rounded">
-                <h6>Desktop ISO</h6>
-                <p class="small text-muted mb-2">Termasuk GNOME, aplikasi pejabat dan multimedia.</p>
-                <a href="#" class="btn btn-sm btn-outline-success">64-bit (AMD/Intel)</a>
-              </div>
-            </div>
-            <div class="col-sm-6 mb-3">
-              <div class="p-3 border rounded">
-                <h6>Net / Minimal</h6>
-                <p class="small text-muted mb-2">Untuk pemasangan tersuai atau peranti lama.</p>
-                <a href="#" class="btn btn-sm btn-outline-success">64-bit</a>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-5 text-center">
-          <div class="card card-body card-shadow">
-            <h5 class="mb-1">Saiz ISO</h5>
-            <p class="small text-muted mb-3">Desktop: ~2.1 GB • Net-install: ~600 MB</p>
-            <a class="btn download-btn text-white" href="#"><i class="bi bi-cloud-arrow-down"></i> Muat Turun Sekarang</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Gallery -->
-  <section id="gallery" class="py-5">
-    <div class="container">
-      <div class="row mb-4">
-        <div class="col text-center">
-          <h2 class="h4">Galeri & Tema</h2>
-          <p class="text-muted">Contoh wallpaper, GDM dan tema plymouth.</p>
-        </div>
-      </div>
-      <div class="row g-3">
-        <div class="col-md-4">
-          <div class="ratio ratio-16x9 rounded overflow-hidden card-shadow">
-            <div class="d-flex align-items-center justify-content-center h-100 bg-light">Wallpaper 1 (placeholder)</div>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="ratio ratio-16x9 rounded overflow-hidden card-shadow">
-            <div class="d-flex align-items-center justify-content-center h-100 bg-light">GDM Preview</div>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="ratio ratio-16x9 rounded overflow-hidden card-shadow">
-            <div class="d-flex align-items-center justify-content-center h-100 bg-light">Plymouth / Boot</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Docs & Support -->
-  <section id="docs" class="py-5 bg-white">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-8">
-          <h3>Dokumentasi</h3>
-          <p class="text-muted">Panduan pemasangan, kustomisasi logo (GRUB/plymouth/GDM), dan cara bina pakej Debian untuk penjenamaan Pelanduk OS.</p>
-          <ul>
-            <li>Manual pemasangan dan penggunaan Calamares atau installer pilihan.</li>
-            <li>Cara tukar /etc/os-release, theme GDM dan logo plymouth.</li>
-            <li>Contoh skrip untuk menggantikan logo Debian dengan PelandukOS.</li>
-          </ul>
-        </div>
-        <div class="col-lg-4">
-          <div class="p-3 border rounded">
-            <h6>Sumber</h6>
-            <p class="small text-muted mb-0">Repo Git, forum komuniti, dan pautan pembangun.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Contact -->
-  <section id="contact" class="py-5">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-6">
-          <h4>Hubungi Kami</h4>
-          <p class="text-muted">Ingin sertai pembangunan atau laporkan pepijat? Hantar e-mel kepada <a href="mailto:hello@pelandukos.org">hello@pelandukos.org</a></p>
-        </div>
-        <div class="col-md-6">
-          <form>
-            <div class="mb-2">
-              <input class="form-control" placeholder="Nama" />
-            </div>
-            <div class="mb-2">
-              <input class="form-control" placeholder="E-mel" />
-            </div>
-            <div class="mb-2">
-              <textarea class="form-control" rows="3" placeholder="Mesej"></textarea>
-            </div>
-            <button class="btn btn-success">Hantar</button>
-          </form>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer class="py-4">
-    <div class="container d-flex justify-content-between align-items-center">
-      <div>
-        <small class="text-muted">© Pelanduk OS 2025 — Dibangunkan dengan komuniti.</small>
-      </div>
-      <div>
-        <a class="text-muted me-3" href="#">Privasi</a>
-        <a class="text-muted" href="#">Lesen</a>
-      </div>
-    </div>
-  </footer>
+  <script>
+    const content = {
+      en: {
+        title: "Welcome to Pelanduk OS",
+        subtitle: "The fast, secure, and lightweight Debian-based operating system.",
+        downloadBtn: "Download Now"
+      },
+      ms: {
+        title: "Selamat Datang ke Pelanduk OS",
+        subtitle: "Sistem operasi berasaskan Debian yang pantas, selamat dan ringan.",
+        downloadBtn: "Muat Turun Sekarang"
+      }
+    };
+    function setLang(lang){
+      document.getElementById('title').textContent = content[lang].title;
+      document.getElementById('subtitle').textContent = content[lang].subtitle;
+      document.getElementById('downloadBtn').textContent = content[lang].downloadBtn;
+    }
+  </script>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
