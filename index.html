@@ -1,9 +1,9 @@
 <!doctype html>
-<html lang="en">
+<html lang="ms">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>PelandukOS — Welcome / Selamat Datang</title>
+  <title>PelandukOS — Selamat Datang</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
   <style>
@@ -12,54 +12,29 @@
       --pelanduk-2:#00a78e;
       --pelanduk-3:#f5fbf9;
     }
-    body{background:var(--pelanduk-3); padding-bottom:70px;} /* space for bottom tab */
+    body{background:var(--pelanduk-3); padding-bottom:70px;}
     .brand-logo{width:48px;height:48px;display:inline-block}
     .navbar-brand .title{font-weight:700;margin-left:.5rem}
     .hero{
       background:linear-gradient(90deg, rgba(0,107,94,0.08), rgba(0,167,142,0.06));
-      padding:5rem 0;
-      position:relative;
-      text-align:center;
+      padding:2rem 0;
     }
-    .hero img.wallpaper{
-      max-width:80%;
+    .hero img{
+      max-width:100%;
       height:auto;
-      margin:2rem auto;
-      display:block;
       border-radius:12px;
       box-shadow:0 8px 30px rgba(0,0,0,0.15);
     }
-    .feature-icon{width:56px;height:56px;border-radius:12px;display:flex;align-items:center;justify-content:center;background:#fff;box-shadow:0 6px 20px rgba(0,0,0,0.05)}
-    .card-shadow{box-shadow:0 6px 30px rgba(6, 44, 37, 0.06)}
-    .download-btn{background:var(--pelanduk-1);border-color:var(--pelanduk-1)}
-    .download-btn:hover{background:var(--pelanduk-2);border-color:var(--pelanduk-2)}
-    /* Bottom Tab Styling */
     .bottom-tabs{
-      position:fixed;
-      bottom:0;
-      left:0;
-      width:100%;
-      background:white;
-      border-top:1px solid #ddd;
-      display:flex;
-      justify-content:space-around;
-      padding:0.5rem 0;
-      z-index:999;
+      position:fixed; bottom:0; left:0; width:100%;
+      background:#fff; border-top:1px solid #ddd;
+      display:flex; justify-content:space-around; padding:.5rem 0; z-index:999;
     }
     .bottom-tabs a{
-      text-align:center;
-      color:#555;
-      text-decoration:none;
-      font-size:0.8rem;
-      flex:1;
+      text-align:center; color:#555; text-decoration:none; font-size:.8rem; flex:1;
     }
-    .bottom-tabs a.active{
-      color:var(--pelanduk-1);
-    }
-    .bottom-tabs i{
-      display:block;
-      font-size:1.2rem;
-    }
+    .bottom-tabs a.active{color:var(--pelanduk-1); font-weight:700;}
+    .bottom-tabs i{display:block; font-size:1.2rem;}
   </style>
 </head>
 <body>
@@ -69,65 +44,87 @@
         <img src="pelandukOS-logo-1.png" alt="PelandukOS" class="brand-logo">
         <span class="title">PelandukOS Linux</span>
       </a>
-      <ul class="navbar-nav ms-auto">
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Language / Bahasa</a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#" onclick="setLang('en')">English</a></li>
-            <li><a class="dropdown-item" href="#" onclick="setLang('ms')">Bahasa Malaysia</a></li>
-          </ul>
-        </li>
-      </ul>
     </div>
   </nav>
 
+  <!-- Kawasan kandungan -->
   <section class="hero">
-    <div class="container">
-      <h1 id="title">Welcome to PelandukOS Linux</h1>
-      <p id="subtitle" class="lead">The fast, secure, updated, and customized operating system.</p>
-      <img src="wallpaper.png" alt="Pelanduk OS Wallpaper" class="wallpaper">
+    <div class="container" id="tabContent">
+      <!-- Kandungan awal -->
+      <div class="row align-items-center">
+        <div class="col-md-5">
+          <img src="wallpaper.png" alt="PelandukOS">
       <a href="https://tunnelbiz.com/pelandukos/download/pelandukosv2-amd64-gnome.iso" class="btn btn-lg btn-primary download-btn" id="downloadBtn">Download Now </a>
       <a href="https://github.com/pelandukos" class="btn btn-lg btn-primary download-btn" id="downloadBtn">Github</a>
+        </div>
+        <div class="col-md-7">
+          <h1>Selamat Datang ke PelandukOS</h1>
+          <p>Sistem operasi pantas, selamat, sentiasa dikemas kini, serta disesuaikan untuk anda.</p>
+        </div>
+      </div>
     </div>
   </section>
 
   <!-- Bottom Tabs -->
   <div class="bottom-tabs">
-    <a href="#packaging" class="active"><i class="bi bi-box-seam"></i>Packaging</a>
-    <a href="#game"><i class="bi bi-controller"></i>Game</a>
-    <a href="#creative"><i class="bi bi-brush"></i>Creative</a>
-    <a href="#video"><i class="bi bi-camera-reels"></i>Video</a>
-    <a href="#wps"><i class="bi bi-file-earmark-text"></i>WPS</a>
+    <a href="#" data-tab="packaging" class="active"><i class="bi bi-box-seam"></i>Packaging</a>
+    <a href="#" data-tab="game"><i class="bi bi-controller"></i>Game</a>
+    <a href="#" data-tab="creative"><i class="bi bi-brush"></i>Creative</a>
+    <a href="#" data-tab="video"><i class="bi bi-camera-reels"></i>Video</a>
+    <a href="#" data-tab="wps"><i class="bi bi-file-earmark-text"></i>WPS</a>
   </div>
 
   <script>
-    const content = {
-      en: {
-        title: "Welcome to PelandukOS",
-        subtitle: "The fast, secure, and lightweight Debian-based operating system.",
-        downloadBtn: "Download Now"
-      },
-      ms: {
-        title: "Selamat Datang ke PelandukOS",
-        subtitle: "Sistem operasi yang mudah, selamat dan ringan.",
-        downloadBtn: "Muat Turun Sekarang"
-      }
-    };
-    function setLang(lang){
-      document.getElementById('title').textContent = content[lang].title;
-      document.getElementById('subtitle').textContent = content[lang].subtitle;
-      document.getElementById('downloadBtn').textContent = content[lang].downloadBtn;
-    }
-
-    // Tab active state
-    document.querySelectorAll('.bottom-tabs a').forEach(tab=>{
-      tab.addEventListener('click', function(){
-        document.querySelectorAll('.bottom-tabs a').forEach(t=>t.classList.remove('active'));
-        this.classList.add('active');
-      });
-    });
-  </script>
-
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-</body>
-</html>
+    const tabHTML = {
+      packaging: `
+        <div class="row align-items-center">
+          <div class="col-md-5">
+            <img src="packaging.jpg" alt="Sistem Pembungkusan PelandukOS">
+          </div>
+          <div class="col-md-7">
+            <h1>Sistem Packaging PelandukOS</h1>
+            <p>PelandukOS menyokong pelbagai format dan ekosistem pemasangan perisian:</p>
+            <ul>
+              <li><code>.deb</code> — pakej natif berasaskan Debian (apt)</li>
+              <li><strong>Flatpak</strong> — sandboxed apps merentas distro (Flathub)</li>
+              <li><strong>Snap</strong> — aplikasi snap dengan kemas kini automatik</li>
+              <li><strong>AppImage</strong> — aplikasi mudah alih tanpa pemasangan</li>
+            </ul>
+            <p>Anda bebas memilih kaedah yang sesuai dengan keperluan — natif, sandboxed, atau portable.</p>
+          </div>
+        </div>
+      `,
+      game: `
+        <div class="row align-items-center">
+          <div class="col-md-5">
+            <img src="steam.jpg" alt="Steam di PelandukOS">
+          </div>
+          <div class="col-md-7">
+            <h1>Game (Steam terbina)</h1>
+            <p>PelandukOS menyertakan sokongan <strong>Steam</strong> terbina untuk akses segera ke koleksi permainan anda.</p>
+            <ul>
+              <li>Integrasi Steam + Proton untuk judul Windows</li>
+              <li>Sedia untuk pengawal permainan & overlay</li>
+              <li>Kompatibiliti meluas melalui ProtonDB & Vulkan</li>
+            </ul>
+          </div>
+        </div>
+      `,
+      creative: `
+        <div class="row align-items-center">
+          <div class="col-md-5">
+            <img src="creative.jpg" alt="Perisian Kreatif Linux">
+          </div>
+          <div class="col-md-7">
+            <h1>Perisian Kreatif</h1>
+            <p>Alatan sumber terbuka untuk reka bentuk & ilustrasi:</p>
+            <ul>
+              <li><strong>GIMP</strong> — suntingan imej raster</li>
+              <li><strong>Inkscape</strong> — grafik vektor</li>
+              <li><strong>Krita</strong> — lukisan digital</li>
+            </ul>
+          </div>
+        </div>
+      `,
+      video: `
+        <
