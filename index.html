@@ -12,28 +12,23 @@
       --pelanduk-2:#00a78e;
       --pelanduk-3:#f5fbf9;
     }
-    body{background:var(--pelanduk-3); padding-bottom:70px;} /* space for bottom tab */
+    body{background:var(--pelanduk-3); padding-bottom:70px;}
     .brand-logo{width:48px;height:48px;display:inline-block}
     .navbar-brand .title{font-weight:700;margin-left:.5rem}
     .hero{
       background:linear-gradient(90deg, rgba(0,107,94,0.08), rgba(0,167,142,0.06));
-      padding:5rem 0;
-      position:relative;
+      padding:2rem 0;
       text-align:center;
     }
     .hero img.wallpaper{
       max-width:80%;
       height:auto;
-      margin:2rem auto;
-      display:block;
+      margin:1rem auto;
       border-radius:12px;
       box-shadow:0 8px 30px rgba(0,0,0,0.15);
     }
-    .feature-icon{width:56px;height:56px;border-radius:12px;display:flex;align-items:center;justify-content:center;background:#fff;box-shadow:0 6px 20px rgba(0,0,0,0.05)}
-    .card-shadow{box-shadow:0 6px 30px rgba(6, 44, 37, 0.06)}
     .download-btn{background:var(--pelanduk-1);border-color:var(--pelanduk-1)}
     .download-btn:hover{background:var(--pelanduk-2);border-color:var(--pelanduk-2)}
-    /* Bottom Tab Styling */
     .bottom-tabs{
       position:fixed;
       bottom:0;
@@ -60,6 +55,10 @@
       display:block;
       font-size:1.2rem;
     }
+    .tab-section img{
+      max-width:100%;
+      border-radius:8px;
+    }
   </style>
 </head>
 <body>
@@ -69,61 +68,94 @@
         <img src="pelandukOS-logo-1.png" alt="PelandukOS" class="brand-logo">
         <span class="title">PelandukOS Linux</span>
       </a>
-      <ul class="navbar-nav ms-auto">
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Language / Bahasa</a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#" onclick="setLang('en')">English</a></li>
-            <li><a class="dropdown-item" href="#" onclick="setLang('ms')">Bahasa Malaysia</a></li>
-          </ul>
-        </li>
-      </ul>
     </div>
   </nav>
 
-  <section class="hero">
-    <div class="container">
-      <h1 id="title">Welcome to PelandukOS Linux</h1>
-      <p id="subtitle" class="lead">The fast, secure, updated, and customized operating system.</p>
-      <img src="wallpaper.png" alt="Pelanduk OS Wallpaper" class="wallpaper">
-      <a href="https://tunnelbiz.com/pelandukos/download/pelandukos-amd64-gnome.iso" class="btn btn-lg btn-primary download-btn" id="downloadBtn">Download Now (Beta)</a>
-      <a href="https://github.com/pelandukos" class="btn btn-lg btn-primary download-btn" id="downloadBtn">Github</a>
+  <!-- Content -->
+  <div id="tabContent" class="container my-4">
+    <!-- Default content -->
+    <div class="row tab-section">
+      <div class="col-md-4">
+        <img src="packaging.jpg" alt="Packaging System">
+      </div>
+      <div class="col-md-8">
+        <h3>Packaging System</h3>
+        <p>PelandukOS menyokong pemasangan aplikasi melalui <strong>.deb</strong>, <strong>Flatpak</strong>, <strong>Snap</strong> dan <strong>AppImage</strong> untuk fleksibiliti maksimum.</p>
+        <a href="https://tunnelbiz.com/pelandukos/download/pelandukos-packaging.iso" class="btn btn-primary download-btn me-2">Download ISO</a>
+        <a href="https://github.com/pelandukos/packaging" class="btn btn-outline-dark"><i class="bi bi-github"></i> GitHub</a>
+      </div>
     </div>
-  </section>
+  </div>
 
   <!-- Bottom Tabs -->
   <div class="bottom-tabs">
-    <a href="#packaging" class="active"><i class="bi bi-box-seam"></i>Packaging</a>
-    <a href="#game"><i class="bi bi-controller"></i>Game</a>
-    <a href="#creative"><i class="bi bi-brush"></i>Creative</a>
-    <a href="#video"><i class="bi bi-camera-reels"></i>Video</a>
-    <a href="#wps"><i class="bi bi-file-earmark-text"></i>WPS</a>
+    <a href="#" data-tab="packaging" class="active"><i class="bi bi-box-seam"></i>Packaging</a>
+    <a href="#" data-tab="game"><i class="bi bi-controller"></i>Game</a>
+    <a href="#" data-tab="creative"><i class="bi bi-brush"></i>Creative</a>
+    <a href="#" data-tab="video"><i class="bi bi-camera-reels"></i>Video</a>
+    <a href="#" data-tab="wps"><i class="bi bi-file-earmark-text"></i>WPS</a>
   </div>
 
   <script>
-    const content = {
-      en: {
-        title: "Welcome to PelandukOS",
-        subtitle: "The fast, secure, and lightweight Debian-based operating system.",
-        downloadBtn: "Download Now"
+    const tabsData = {
+      packaging: {
+        img: "packaging.jpg",
+        title: "Packaging System",
+        desc: "PelandukOS menyokong pemasangan aplikasi melalui <strong>.deb</strong>, <strong>Flatpak</strong>, <strong>Snap</strong> dan <strong>AppImage</strong> untuk fleksibiliti maksimum.",
+        download: "https://tunnelbiz.com/pelandukos/download/pelandukos-packaging.iso",
+        github: "https://github.com/pelandukos/packaging"
       },
-      ms: {
-        title: "Selamat Datang ke PelandukOS",
-        subtitle: "Sistem operasi yang mudah, selamat dan ringan.",
-        downloadBtn: "Muat Turun Sekarang"
+      game: {
+        img: "games.jpg",
+        title: "Game",
+        desc: "PelandukOS hadir dengan Steam Apps terbina dan sokongan permainan Linux yang luas.",
+        download: "https://tunnelbiz.com/pelandukos/download/pelandukos-game.iso",
+        github: "https://github.com/pelandukos/game"
+      },
+      creative: {
+        img: "creative.jpg",
+        title: "Creative Software",
+        desc: "Termasuk perisian kreatif seperti GIMP, Inkscape dan Krita untuk reka bentuk grafik & seni digital.",
+        download: "https://tunnelbiz.com/pelandukos/download/pelandukos-creative.iso",
+        github: "https://github.com/pelandukos/creative"
+      },
+      video: {
+        img: "video.jpg",
+        title: "Video Software",
+        desc: "Dilengkapi dengan Blender dan HandBrake untuk penyuntingan video dan animasi.",
+        download: "https://tunnelbiz.com/pelandukos/download/pelandukos-video.iso",
+        github: "https://github.com/pelandukos/video"
+      },
+      wps: {
+        img: "wps.jpg",
+        title: "WPS Word Processing",
+        desc: "Menggunakan WPS Office untuk kerja dokumen, spreadsheet dan persembahan.",
+        download: "https://tunnelbiz.com/pelandukos/download/pelandukos-wps.iso",
+        github: "https://github.com/pelandukos/wps"
       }
     };
-    function setLang(lang){
-      document.getElementById('title').textContent = content[lang].title;
-      document.getElementById('subtitle').textContent = content[lang].subtitle;
-      document.getElementById('downloadBtn').textContent = content[lang].downloadBtn;
-    }
 
-    // Tab active state
     document.querySelectorAll('.bottom-tabs a').forEach(tab=>{
-      tab.addEventListener('click', function(){
+      tab.addEventListener('click', function(e){
+        e.preventDefault();
         document.querySelectorAll('.bottom-tabs a').forEach(t=>t.classList.remove('active'));
         this.classList.add('active');
+
+        const tabKey = this.dataset.tab;
+        const data = tabsData[tabKey];
+        document.getElementById('tabContent').innerHTML = `
+          <div class="row tab-section">
+            <div class="col-md-4">
+              <img src="${data.img}" alt="${data.title}">
+            </div>
+            <div class="col-md-8">
+              <h3>${data.title}</h3>
+              <p>${data.desc}</p>
+              <a href="${data.download}" class="btn btn-primary download-btn me-2">Download ISO</a>
+              <a href="${data.github}" class="btn btn-outline-dark"><i class="bi bi-github"></i> GitHub</a>
+            </div>
+          </div>
+        `;
       });
     });
   </script>
