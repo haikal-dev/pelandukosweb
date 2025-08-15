@@ -1,9 +1,9 @@
 <!doctype html>
-<html lang="ms">
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>PelandukOS — Selamat Datang</title>
+  <title>PelandukOS — Welcome / Selamat Datang</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
   <style>
@@ -17,24 +17,46 @@
     .navbar-brand .title{font-weight:700;margin-left:.5rem}
     .hero{
       background:linear-gradient(90deg, rgba(0,107,94,0.08), rgba(0,167,142,0.06));
-      padding:2rem 0;
+      padding:5rem 0;
+      text-align:center;
     }
-    .hero img{
-      max-width:100%;
+    .hero img.wallpaper{
+      max-width:80%;
       height:auto;
+      margin:2rem auto;
+      display:block;
       border-radius:12px;
       box-shadow:0 8px 30px rgba(0,0,0,0.15);
     }
+    .download-btn{background:var(--pelanduk-1);border-color:var(--pelanduk-1)}
+    .download-btn:hover{background:var(--pelanduk-2);border-color:var(--pelanduk-2)}
     .bottom-tabs{
-      position:fixed; bottom:0; left:0; width:100%;
-      background:#fff; border-top:1px solid #ddd;
-      display:flex; justify-content:space-around; padding:.5rem 0; z-index:999;
+      position:fixed;
+      bottom:0;
+      left:0;
+      width:100%;
+      background:white;
+      border-top:1px solid #ddd;
+      display:flex;
+      justify-content:space-around;
+      padding:0.5rem 0;
+      z-index:999;
     }
     .bottom-tabs a{
-      text-align:center; color:#555; text-decoration:none; font-size:.8rem; flex:1;
+      text-align:center;
+      color:#555;
+      text-decoration:none;
+      font-size:0.8rem;
+      flex:1;
     }
-    .bottom-tabs a.active{color:var(--pelanduk-1); font-weight:700;}
-    .bottom-tabs i{display:block; font-size:1.2rem;}
+    .bottom-tabs a.active{
+      color:var(--pelanduk-1);
+      font-weight:bold;
+    }
+    .bottom-tabs i{
+      display:block;
+      font-size:1.2rem;
+    }
   </style>
 </head>
 <body>
@@ -47,21 +69,11 @@
     </div>
   </nav>
 
-  <!-- Kawasan kandungan -->
   <section class="hero">
-    <div class="container" id="tabContent">
-      <!-- Kandungan awal -->
-      <div class="row align-items-center">
-        <div class="col-md-5">
-          <img src="wallpaper.png" alt="PelandukOS">
-      <a href="https://tunnelbiz.com/pelandukos/download/pelandukosv2-amd64-gnome.iso" class="btn btn-lg btn-primary download-btn" id="downloadBtn">Download Now </a>
-      <a href="https://github.com/pelandukos" class="btn btn-lg btn-primary download-btn" id="downloadBtn">Github</a>
-        </div>
-        <div class="col-md-7">
-          <h1>Selamat Datang ke PelandukOS</h1>
-          <p>Sistem operasi pantas, selamat, sentiasa dikemas kini, serta disesuaikan untuk anda.</p>
-        </div>
-      </div>
+    <div class="container">
+      <h1 id="tabTitle">Welcome to PelandukOS Linux</h1>
+      <p id="tabContent" class="lead">The fast, secure, updated, and customized operating system.</p>
+      <img src="wallpaper.png" alt="Pelanduk OS Wallpaper" class="wallpaper" id="tabImage">
     </div>
   </section>
 
@@ -75,56 +87,48 @@
   </div>
 
   <script>
-    const tabHTML = {
-      packaging: `
-        <div class="row align-items-center">
-          <div class="col-md-5">
-            <img src="packaging.jpg" alt="Sistem Pembungkusan PelandukOS">
-          </div>
-          <div class="col-md-7">
-            <h1>Sistem Packaging PelandukOS</h1>
-            <p>PelandukOS menyokong pelbagai format dan ekosistem pemasangan perisian:</p>
-            <ul>
-              <li><code>.deb</code> — pakej natif berasaskan Debian (apt)</li>
-              <li><strong>Flatpak</strong> — sandboxed apps merentas distro (Flathub)</li>
-              <li><strong>Snap</strong> — aplikasi snap dengan kemas kini automatik</li>
-              <li><strong>AppImage</strong> — aplikasi mudah alih tanpa pemasangan</li>
-            </ul>
-            <p>Anda bebas memilih kaedah yang sesuai dengan keperluan — natif, sandboxed, atau portable.</p>
-          </div>
-        </div>
-      `,
-      game: `
-        <div class="row align-items-center">
-          <div class="col-md-5">
-            <img src="steam.jpg" alt="Steam di PelandukOS">
-          </div>
-          <div class="col-md-7">
-            <h1>Game (Steam terbina)</h1>
-            <p>PelandukOS menyertakan sokongan <strong>Steam</strong> terbina untuk akses segera ke koleksi permainan anda.</p>
-            <ul>
-              <li>Integrasi Steam + Proton untuk judul Windows</li>
-              <li>Sedia untuk pengawal permainan & overlay</li>
-              <li>Kompatibiliti meluas melalui ProtonDB & Vulkan</li>
-            </ul>
-          </div>
-        </div>
-      `,
-      creative: `
-        <div class="row align-items-center">
-          <div class="col-md-5">
-            <img src="creative.jpg" alt="Perisian Kreatif Linux">
-          </div>
-          <div class="col-md-7">
-            <h1>Perisian Kreatif</h1>
-            <p>Alatan sumber terbuka untuk reka bentuk & ilustrasi:</p>
-            <ul>
-              <li><strong>GIMP</strong> — suntingan imej raster</li>
-              <li><strong>Inkscape</strong> — grafik vektor</li>
-              <li><strong>Krita</strong> — lukisan digital</li>
-            </ul>
-          </div>
-        </div>
-      `,
-      video: `
-        <
+    const tabData = {
+      packaging: {
+        title: "Packaging System in Linux",
+        content: "Linux distros use package managers like apt, dnf, pacman, and zypper to install, update, and manage software securely.",
+        image: "packaging.jpg"
+      },
+      game: {
+        title: "Gaming on Linux",
+        content: "With Proton, Lutris, and native ports, Linux supports thousands of games from Steam, GOG, and more.",
+        image: "game.jpg"
+      },
+      creative: {
+        title: "Creative Software on Linux",
+        content: "Linux offers tools like GIMP, Inkscape, Krita, and Blender for art, design, and animation.",
+        image: "creative.jpg"
+      },
+      video: {
+        title: "Video Editing on Linux",
+        content: "Popular Linux video editors include Kdenlive, Shotcut, and OpenShot, offering pro-grade features.",
+        image: "video.jpg"
+      },
+      wps: {
+        title: "WPS Word Processing on Linux",
+        content: "WPS Office provides a powerful alternative to Microsoft Office, with full support for documents, spreadsheets, and presentations.",
+        image: "wps.jpg"
+      }
+    };
+
+    document.querySelectorAll('.bottom-tabs a').forEach(tab=>{
+      tab.addEventListener('click', function(e){
+        e.preventDefault();
+        document.querySelectorAll('.bottom-tabs a').forEach(t=>t.classList.remove('active'));
+        this.classList.add('active');
+
+        const tabKey = this.getAttribute('data-tab');
+        document.getElementById('tabTitle').textContent = tabData[tabKey].title;
+        document.getElementById('tabContent').textContent = tabData[tabKey].content;
+        document.getElementById('tabImage').src = tabData[tabKey].image;
+      });
+    });
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
